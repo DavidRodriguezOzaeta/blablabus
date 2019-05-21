@@ -56,12 +56,8 @@
 							<select name="origen" id="origen">
 							<?php
 								while($linea=mysqli_fetch_array($registros)){
-									if($linea[idlocalidad]==$lineaDatos[idlocalidad])
-										echo
-										"<option value='$lineaDatos[idlocalidad]'selected>$lineaDatos[localidad]</option>";
-									else
-										echo 
-										"<option value='$linea[idlocalidad]'>$linea[localidad]</option>";
+									echo
+									"<option value='$linea[idlocalidad]'>$linea[localidad]</option>";
 								}
 							?>
 					 		</select>
@@ -73,12 +69,8 @@
 							<select name="destino" id="destino">
 								<?php
 									while($linea2=mysqli_fetch_array($registros2)){
-										if($linea2[idlocalidad]==$lineaDatos2[iddestino])
-											echo 
-											"<option value='$lineaDatos2[idlocalidad]'selected>$lineaDatos2[localidad]</option>";
-										else
-											echo
-											"<option value='$linea2[idlocalidad]'>$linea2[localidad]</option>";
+										echo
+										"<option value='$linea2[idlocalidad]'>$linea2[localidad]</option>";
 									}
 								?>
 					 		</select>
@@ -88,7 +80,7 @@
 						<td><b>Fecha</b></td>
 						<td>
 							<?php
-								echo"<input type='date' name='fecha' value='$lineaDatos[fecha]'>";
+								echo"<input type='date' name='fecha'>";
 							?>
 						</td>
 					</tr>
@@ -96,12 +88,12 @@
 						<td><b>Hora</b></td>
 						<td>
 							<?php
-								echo"<input type='time' name='hora' value='$lineaDatos[hora]'>";
+								echo"<input type='time' name='hora'>";
 							?>
 						</td>
 					</tr>
 					<tr>
-						<td><b>Plazas Ocupadas</b></td>
+						<td><b>Plazas Iniciales</b></td>
 						<td>
 							<?php
 								echo"<input type='number' name='plazasocupadas' min='1' max='65' maxlength='2' oninput='maxLengthCheck(this)' value='$lineaDatos[plazasocupadas]'";
@@ -112,7 +104,7 @@
 						<td><b>Plazas Máximas</b></td>
 						<td>
 							<?php
-								echo"<input type='number' name='plazasmax' min='30' max='65' maxlength = '2' oninput='maxLengthCheck(this)' style='max-width:75px' value='$lineaDatos[plazasmax]'>";
+								echo"<input type='number' name='plazasmax' min='30' max='65' maxlength = '2' oninput='maxLengthCheck(this)' style='max-width:75px' placeholder='60'>";
 							?>
 						</td>
 					</tr>
