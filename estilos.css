@@ -1,0 +1,41 @@
+﻿#barraSuperior{
+	position:absolute;
+	left:13%;
+	top:-1%;
+	background-color:aqua;
+	height:9%;
+	border-bottom:3px solid black;
+	border-left:3px solid black;
+	border-right:3px solid black;
+	border-radius:14px;
+	max-width:75%;
+}
+
+#cuerpo{
+
+	color:white;
+	background-color:black;
+	height:300px;
+	border:8px solid #3366CC;
+	border-radius:19px;
+	max-width:65%;
+	alignment-adjust:central;
+	margin-top:1%;
+	opacity:0.7;
+
+}
+
+#loginAdmin{
+	
+	color:black;
+	opacity:0.99;
+	visibility:hidden;
+	position:absolute;
+	left:72%;
+	top:70px;
+	background-color:bisque;
+	height:18%;
+	border:3px solid red;
+	border-radius:14px;
+	width:20%;
+}
