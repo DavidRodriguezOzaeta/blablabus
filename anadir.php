@@ -26,8 +26,8 @@
 	<body style="background-image:url('imagenes/fondogestion.png');background-size:cover">
 		<div class="container-fluid" id="barraSuperior">
 			<a href="index.php"><img src="imagenes/blablacar2.png" width="58px" height="54px" style="margin-top:9px"></a> 
-			<img src="imagenes/textmodificar.png" width="300px" height="50px" style="position:absolute;left:415px;top:23px">
-		 	<input type="button" class="btn btn-danger" value="Volver" style="position:absolute;right:30px;top:20px" onclick="window.open('panelcontrol.php')">
+			<div style="position:absolute; top:5;left:450px;font-size:40;font-family:Century Gothic"> Añadir Viaje</div>
+			<input type="button" class="btn btn-danger" value="Volver" style="position:absolute;right:30px;top:20px" onclick="window.open('panelcontrol.php')">
 		 </div>
 		<div class="col-6 offset-3" style="margin-top:10%;background-color:darkorange;opacity:0.9;border:3px solid aqua;border-radius:2px;color:white">
 			<?php
@@ -96,7 +96,7 @@
 						<td><b>Plazas Iniciales</b></td>
 						<td>
 							<?php
-								echo"<input type='number' name='plazasocupadas' min='1' max='65' maxlength='2' oninput='maxLengthCheck(this)' value='$lineaDatos[plazasocupadas]'";
+								echo"<input type='number' name='plazasocupadas' min='1' max='65' maxlength='2' oninput='maxLengthCheck(this)'";
 							?>
 						</td>
 					</tr>
@@ -134,7 +134,7 @@
 					</tr>
 				</table>
 				<div class="btn-group" role="group" aria-label="Basic example">
-					<button type="submit" class="btn btn-primary" style="margin-left:500%;margin-top:10px">Enviar</button>
+					<button type="submit" class="btn btn-primary" style="margin-left:330%;margin-top:15px;min-width:100px">Crear Viaje</button>
 				</div>
 			</form>
 		</div>
