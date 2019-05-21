@@ -48,7 +48,7 @@
 				$lineaDatos2=mysqli_fetch_array($registrosDatos2); 
 
 			?>
-			<form name="datos" id="datos" method="post" action="updDatos.php?id=<?php echo"$lineaDatos[idviaje]"; ?>">
+			<form name="datos" id="datos" method="post" action="addDatos.php?id=<?php echo"$lineaDatos[idviaje]"; ?>">
 				<table align="center" width="40%" style="margin-top:5%">
 					<tr>
 						<td><b>Origen</b></td>
@@ -112,7 +112,7 @@
 						<td><b>Precio</b></td>
 						<td>
 							<?php
-								echo"<input type='number' name='precio' min='1500' max='2500' step='50' maxlength = '4' oninput='maxLengthCheck(this)' value='$lineaDatos[precio]'>";
+								echo"<input type='number' name='precio' min='1500' max='2500' step='50' maxlength = '4' oninput='maxLengthCheck(this)'>";
 							?>
 						</td>
 					</tr>
@@ -120,7 +120,7 @@
 						<td><b>Email</b></td>
 						<td>
 							<?php
-								echo"<input type='email' name='email' style='max-width:350px' value='$lineaDatos[email]'>";
+								echo"<input type='email' name='email' style='max-width:350px' placeholder='email@dominio.com'";
 							?>
 						</td>
 					</tr>
@@ -128,7 +128,7 @@
 						<td><b>Nombre</b></td>
 						<td>
 							<?php
-								echo"<input type='text' name='nombre' placeholder='Nombre' style='max-width:350px' value='$lineaDatos[nombre]'>";
+								echo"<input type='text' name='nombre' placeholder='Nombre' style='max-width:350px'>";
 							?>
 						</td>
 					</tr>
