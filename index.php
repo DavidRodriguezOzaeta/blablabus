@@ -27,7 +27,7 @@
 		<div class="container-fluid" id="cuerpo">
 			<h2 style="text-align:center;text-decoration:underline;margin-top:8px">Búsqueda de viajes</h2>
 			<div align="center">
-				<form method="post" action="buscar.php" style="margin-top:15px">
+				<form method="post" action="buscar.php" style="margin-top:35px">
 					<table cellpadding="5" id="tabla">
 						<tr>
 							<td align="center">Origen :</td>
@@ -66,12 +66,12 @@
 								</select>
 							</td>				
 						</tr>
-						<tr>
-							<td align="center">Fecha :</td>
-							<td><input type="date" name="fecha"></td>				
-						</tr>
+						<!-- <tr>
+						//	<td align="center">Fecha :</td>
+						//	<td><input type="date" name="fecha"></td>				
+						</tr> -->
 						<tr>							
-							<td style="text-align:right">						
+							<td style="text-align:center;margin-top:20px">						
 								<div class="btn-group" role="group" aria-label="Basic example">
 								  <button type="submit" class="btn btn-primary" style="position:absolute;left:50px">Buscar</button>
 								</div>						

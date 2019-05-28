@@ -26,16 +26,21 @@
 	</head>
 	<body style="background-image:url('imagenes/fondogestion.png');background-size:cover">
 	<?php
-		// Desactiva el mensaje de "Esto mostrará un error en la siguiente versión de PHP"
+		// Desactiva el mensaje de "Esto mostrará un error en la siguiente versión de PHP". Aunque desactiva todos los mensajes. 
+		// Si algo no funciona borrar esta linea para ver el error !!!.
 		
 		error_reporting(0);
 	?>
 	<?php
 		session_start();
 		
-		$_SESSION['origen'] = $_POST[origen];
-		$_SESSION['destino'] = $_POST[destino];
-
+		//Arregla el error de que no aparezca ningún registro después de comprar.
+		if($_SESSION['origen']==""){
+			$_SESSION['origen'] = $_POST[origen];
+		}
+		if($_SESSION['destino']==""){
+			$_SESSION['destino'] = $_POST[destino];
+		}
 	?>
 		<div class="container-fluid" id="barraSuperior" style="height:80px;">
 			<a href="index.php"><img src="imagenes/blablacar2.png" width="58px" height="54px" style="margin-top:9px" title="Volver a la página principal"></a> 
