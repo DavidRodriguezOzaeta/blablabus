@@ -34,11 +34,11 @@
 
 		<?php
 			include("conexion_bd.php");
-			$sql="SELECT v.*, l.localidad AS origen, r.localidad AS destino FROM viajes as v, localidades as l, localidades as r WHERE (v.idorigen=l.idlocalidad) AND (v.iddestino=r.idlocalidad) AND (v.iddestino=$_POST[destino]) ORDER BY fecha DESC";
+			$sql="SELECT v.*, DATE_FORMAT(v.fecha, '%d/%m/%Y') AS fechabuena, l.localidad AS origen, r.localidad AS destino FROM viajes as v, localidades as l, localidades as r WHERE (v.idorigen=l.idlocalidad) AND (v.iddestino=r.idlocalidad) AND (v.iddestino=$_POST[destino]) AND (v.idorigen=$_POST[origen]) ORDER BY fecha DESC";
 				
 			$registros=mysqli_query($conexion,$sql) or die("Error en la consulta $sql");   //Ejecuta la consulta y mete el contenido de los registros en una variable.
 		?>				
-		<table class="text-center" align="center" width="60%" style="background-color:white;margin-top:8%;border:2px solid black">
+		<table class="text-center" align="center" width="60%" style="background-color:white;margin-top:8%;border:2px solid black;" cellpadding="10">
 			<tr>
 				<td>Origen</td>
 				<td>Destino</td>
@@ -47,9 +47,7 @@
 				<td>Plazas Ocupadas</td>
 				<td>Plazas Max</td>
 				<td>Precio</td>
-				<td>Email</td>
-				<td>Nombre</td>
-				<td></td>
+				<td>Cantidad de plazas</td>
 			</tr>		
 				<?php
 					$i = 0;
@@ -57,20 +55,18 @@
 						echo "<tr bgcolor='#CCCCCC' style='border:2px solid black;'>
 								<td>$linea[origen]</td>
 								<td>$linea[destino]</td>
-								<td>$linea[fecha]</td>
+								<td>$linea[fechabuena]</td>
 								<td>$linea[hora]</td>
 								<td>$linea[plazasocupadas]</td>
 								<td>$linea[plazasmax]</td>
 								<td>$linea[precio] €</td>
-								<td>$linea[email]</td>
-								<td>$linea[nombre]</td>
-								<td><input id=$i type='number' style='max-width:50px'><input type='button' value='Comprar' onclick='comprar($i, $linea[idviaje])'></td>
+								<td><input id=$i type='number' style='width:50px'><input type='button' value='Comprar' onclick='comprar($i, $linea[idviaje])'></td>
 							</tr>";	
 							$i++;
 					}
 				?>
 			<tr style="opacity:1">
-				<td colspan=10 style="font-size:35;font-family:Century Gothic;cursor:pointer" onclick="window.open('anadir.php', '_parent')">Añadir viaje <img width=50 height=50 src="imagenes/add.png"></td>
+				<td colspan=8 style="font-size:35;font-family:Century Gothic;cursor:pointer" onclick="window.open('anadir.php', '_parent')">Añadir viaje <img width=50 height=50 src="imagenes/add.png"></td>
 			</tr>
 		</table>
 	</body>

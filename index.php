@@ -27,22 +27,13 @@
 		<div class="container-fluid" id="cuerpo">
 			<h2 style="text-align:center;text-decoration:underline;margin-top:8px">Búsqueda de viajes</h2>
 			<div align="center">
-				<form action="buscar.php" method="post" style="margin-top:15px">
+				<form method="post" action="buscar.php" style="margin-top:15px">
 					<table cellpadding="5" id="tabla">
 						<tr>
 							<td align="center">Origen :</td>
 							<td>
-								<select>
-									<option value="1">Zaragoza</option>
-								</select>
-							</td>				
-						</tr>
-	
-						<tr>
-							<td align="center">Destino :</td>
-							<td>
-								<select name="destino" id="destino">
-										<?php   
+								<select name="origen" id="origen">
+									<?php   
 											include('conexion_bd.php');
 	
 											$sql = "SELECT * FROM localidades" or die("Error en la consulta".mysqli_error($conexion));
@@ -52,6 +43,23 @@
 											while($linea=mysqli_fetch_array($registros)){
 
 											echo"<option value='$linea[idlocalidad]'>$linea[localidad]</option>";
+											}
+						
+										 ?>
+								</select>
+							</td>				
+						</tr>
+	
+	
+						<tr>
+							<td align="center">Destino :</td>
+							<td>
+								<select name="destino" id="destino">
+										<?php   
+											$registros2 = mysqli_query($conexion, $sql);
+
+											while($linea2=mysqli_fetch_array($registros2)){
+												echo"<option value='$linea2[idlocalidad]'>$linea2[localidad]</option>";
 											}
 						
 										 ?>
