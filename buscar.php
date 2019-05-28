@@ -14,7 +14,15 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="estilos.css" style="">
 		<link rel="icon" type="image/png" href="imagenes/logo.png">
-				
+		
+		
+		<script type="text/javascript">
+			function comprar(id, idviaje){		
+				cantidad = document.getElementById(id).value;
+				resultado = "comprar.php?cant="+cantidad+"&id="+idviaje;
+				window.open(resultado, '_parent');
+			}
+		</script>
 	</head>
 	<body style="background-image:url('imagenes/fondogestion.png');background-size:cover">
 		<div class="container-fluid" id="barraSuperior" style="height:80px;">
@@ -41,8 +49,10 @@
 				<td>Precio</td>
 				<td>Email</td>
 				<td>Nombre</td>
+				<td></td>
 			</tr>		
 				<?php
+					$i = 0;
 					while($linea=mysqli_fetch_array($registros)){
 						echo "<tr bgcolor='#CCCCCC' style='border:2px solid black;'>
 								<td>$linea[origen]</td>
@@ -54,11 +64,13 @@
 								<td>$linea[precio] €</td>
 								<td>$linea[email]</td>
 								<td>$linea[nombre]</td>
+								<td><input id=$i type='number' style='max-width:50px'><input type='button' value='Comprar' onclick='comprar($i, $linea[idviaje])'></td>
 							</tr>";	
+							$i++;
 					}
 				?>
 			<tr style="opacity:1">
-				<td colspan=9 style="font-size:35;font-family:Century Gothic;cursor:pointer" onclick="window.open('anadir.php', '_parent')">Añadir viaje <img width=50 height=50 src="imagenes/add.png"></td>
+				<td colspan=10 style="font-size:35;font-family:Century Gothic;cursor:pointer" onclick="window.open('anadir.php', '_parent')">Añadir viaje <img width=50 height=50 src="imagenes/add.png"></td>
 			</tr>
 		</table>
 	</body>
