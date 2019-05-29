@@ -25,6 +25,23 @@
 		</script>
 	</head>
 	<body style="background-image:url('imagenes/fondogestion.png');background-size:cover">
+	<?php
+		// Desactiva el mensaje de "Esto mostrará un error en la siguiente versión de PHP". Aunque desactiva todos los mensajes. 
+		// Si algo no funciona borrar esta linea para ver el error !!!.
+		
+		error_reporting(0);
+	?>
+	<?php
+		session_start();
+		
+		//Arregla el error de que no aparezca ningún registro después de comprar.
+		if($_SESSION['origen']==""){
+			$_SESSION['origen'] = $_POST[origen];
+		}
+		if($_SESSION['destino']==""){
+			$_SESSION['destino'] = $_POST[destino];
+		}
+	?>
 		<div class="container-fluid" id="barraSuperior" style="height:80px;">
 			<a href="index.php"><img src="imagenes/blablacar2.png" width="58px" height="54px" style="margin-top:9px" title="Volver a la página principal"></a> 
 			
@@ -34,7 +51,7 @@
 
 		<?php
 			include("conexion_bd.php");
-			$sql="SELECT v.*, DATE_FORMAT(v.fecha, '%d/%m/%Y') AS fechabuena, l.localidad AS origen, r.localidad AS destino FROM viajes as v, localidades as l, localidades as r WHERE (v.idorigen=l.idlocalidad) AND (v.iddestino=r.idlocalidad) AND (v.iddestino=$_POST[destino]) AND (v.idorigen=$_POST[origen]) ORDER BY fecha DESC";
+			$sql="SELECT v.*, DATE_FORMAT(v.fecha, '%d/%m/%Y') AS fechabuena, l.localidad AS origen, r.localidad AS destino FROM viajes as v, localidades as l, localidades as r WHERE (v.idorigen=l.idlocalidad) AND (v.iddestino=r.idlocalidad) AND (v.iddestino='$_SESSION[destino]') AND (v.idorigen='$_SESSION[origen]') ORDER BY fecha DESC";
 				
 			$registros=mysqli_query($conexion,$sql) or die("Error en la consulta $sql");   //Ejecuta la consulta y mete el contenido de los registros en una variable.
 		?>				
